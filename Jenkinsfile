@@ -7,7 +7,7 @@ pipeline{
                 label 'docker-ubuntu'
             }
             steps {
-                sh 'mvn package'
+                sh 'mvn clean && mvn package -DskipTests'
                 sh 'docker build -t montud/microservice-discovery:latest .'
             }
 
