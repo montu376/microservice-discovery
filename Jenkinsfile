@@ -4,11 +4,11 @@ pipeline{
     stages{
         stage('Building Image and dockerzing it'){
             agent {
-                label 'docker-ubuntu'
+                label 'montuUbuntu'
             }
             steps {
-                sh 'mvn clean && mvn package -DskipTests'
-                sh 'docker build -t montud/microservice-discovery:latest .'
+                sh 'mvn package'
+                stash includes: 'target/*.jar', name: 'jarartifact' 
             }
 
             post{
@@ -24,6 +24,8 @@ pipeline{
                 label 'docker-ubuntu'
             }
             steps {
+                unstash 'jarartifact'
+                sh 'docker build -t montud/microservice-discovery:latest .'
                 sh 'docker push montud/microservice-discovery:latest'
             }
         }
