@@ -33,7 +33,7 @@ pipeline{
 
         stage('Kubernates deploy'){
             steps {
-                bat 'C:\\Users\\coolm\\kubectl.exe apply -f deploy.ydml'
+                bat 'C:\\Users\\coolm\\kubectl.exe apply -f deploy.yml'
             }
         }
     }
