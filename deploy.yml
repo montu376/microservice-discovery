@@ -25,31 +25,31 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: microservice-config-map
-                  value: server.port
+                  key: server.port
 
             - name:  eureka.instance.hostname
               valueFrom:
                 configMapKeyRef:
                   name: microservice-config-map
-                  value:  eureka.instance.hostname
+                  key:  eureka.instance.hostname
 
             - name:  eureka.client.fetch-registry
               valueFrom:
                 configMapKeyRef:
                   name: microservice-config-map
-                  value:  eureka.client.fetch-registry
+                  key:  eureka.client.fetch-registry
 
             - name:  eureka.client.register-with-eureka
               valueFrom:
                 configMapKeyRef:
                   name: microservice-config-map
-                  value: eureka.client.register-with-eureka
+                  key: eureka.client.register-with-eureka
  
             - name:  spring.application.name
               valueFrom:
                 configMapKeyRef:
                   name: microservice-config-map
-                  value: spring.application.name
+                  key: spring.application.name
 
 
           volumeMounts:
@@ -90,11 +90,11 @@ metadata:
   labels:
      type: configmap
 data:
-  server.port: 8761
-  eureka.instance.hostname: localhost
-  eureka.client.fetch-registry: false
-  eureka.client.register-with-eureka: false
-  spring.application.name: servicediscovery
+  server.port: "8761"
+  eureka.instance.hostname: "localhost"
+  eureka.client.fetch-registry: "false"
+  eureka.client.register-with-eureka: "false"
+  spring.application.name: "servicediscovery"
 
 
 
