@@ -8,7 +8,6 @@ pipeline{
             }
             steps {
                 sh 'mvn package -DskipTests'
-                stash includes: 'target/*.jar', name: 'jarartifact' 
             }
 
             post{
@@ -21,10 +20,9 @@ pipeline{
 
         stage('docker push'){
             agent {
-                label 'docker-ubuntu'
+                label 'montuUbuntu'
             }
             steps {
-                unstash 'jarartifact'
                 sh 'docker build -t montud/microservice-discovery:latest .'
                 sh 'docker push montud/microservice-discovery:latest'
             }
