@@ -20,7 +20,7 @@ spec:
       volumes:
         - name: config
           configmap: 
-             name: microservice-config-map
+            name: microservice-config-map
       containers:
         - name:  microservice-discovery
           image: montud/microservice-discovery:latest
