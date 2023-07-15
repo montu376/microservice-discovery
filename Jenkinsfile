@@ -30,8 +30,11 @@ pipeline{
 
 
         stage('Kubernates deploy'){
+            agent{
+                label 'microkube'
+            }
             steps {
-                bat 'C:\\Users\\coolm\\kubectl.exe apply -f deploy.yml'
+                bat 'microk8s kubectl apply -f deploy.yml'
             }
         }
     }
