@@ -6,7 +6,7 @@ metadata:
     env: test
     type: discovery-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       env: test  
@@ -19,8 +19,9 @@ spec:
     spec:
       volumes:
         - name: config
-          configmap: 
+          configMap: 
             name: microservice-config-map
+
       containers:
         - name:  microservice-discovery
           image: montud/microservice-discovery:latest
